@@ -5,7 +5,7 @@ def lazy_n_queens(n):
         cur = pstack.pop()
         for pos in range(n):
             cur.append(pos)
-            if check_partial(cur):
+            if check_newest(cur):
                 if len(cur) == n:
                     yield cur
                 pstack.append(cur[:])
@@ -21,6 +21,17 @@ def check_partial(psol):
             ydif = y2 - y
             if xdif == 0 or xdif == ydif or xdif == -ydif:
                 return False
+    return True
+
+def check_newest(psol):
+    y = len(psol) - 1
+    x = psol[y]
+    for y2 in range(y):
+        x2 = psol[y2]
+        xdif = x2 - x
+        ydif = y2 - y
+        if xdif == 0 or xdif == ydif or xdif == -ydif:
+            return False
     return True
 
 
