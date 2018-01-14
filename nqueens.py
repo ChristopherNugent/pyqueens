@@ -17,12 +17,13 @@ def lazy_n_queens(n):
 
 
 def check_partial(psol):
-    for col, row in enumerate(psol):
-        for col2, row2 in enumerate(psol[col + 1:]):
-            col2 += col + 1
-            if row == row2:
-                return False
-            if row2 == row + (col2 - col) or row2 == row - (col2 - col):
+    for y in range(len(psol)):
+        x = psol[y]
+        for y2 in range(y + 1, len(psol)):
+            x2 = psol[y2]
+            xdif = x2 - x
+            ydif = y2 - y
+            if xdif == 0 or xdif == ydif or xdif == -ydif:
                 return False
     return True
 
