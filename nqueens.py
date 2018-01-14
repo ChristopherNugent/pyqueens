@@ -6,7 +6,7 @@ def lazy_n_queens(n):
     pstack.append([])
     while(pstack):
         cur = pstack.pop()
-        if check_partial(cur) and len(cur) == n:
+        if len(cur) == n:
             yield cur
             continue
         for pos in range(n):
