@@ -6,12 +6,18 @@ if __name__ == '__main__':
     parser.add_argument('size', help='Size of board to use', type=int)
     group = parser.add_mutually_exclusive_group()
     group.add_argument("-p", "--pretty",
-                        help="print board in a visual format", action="store_true")
-    group.add_argument('-q', '--quiet', help='do not print solutions', action='store_true')
+                       help="print board in a visual format", action="store_true")
+    group.add_argument(
+        '-q',
+        '--quiet',
+        help='do not print solutions',
+        action='store_true')
     parser.add_argument('-c', '--count', help='display the count with each solution',
                         action='store_true')
     args = parser.parse_args()
     try:
+        if args.pretty:
+            print('Finding solutions for the N queens problem where N = {}...'.format(args.size))
         count = 0
         for sol in lazy_n_queens(args.size):
             count += 1
