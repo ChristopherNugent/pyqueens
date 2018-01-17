@@ -1,4 +1,5 @@
 def lazy_n_queens(n):
+    """Yield all solutions to the n-queens problem"""
     pstack = []
     pstack.append([])
     while(pstack):
@@ -13,6 +14,7 @@ def lazy_n_queens(n):
 
 
 def check_partial(psol):
+    """Check the validity of a partial or complete solution"""
     for y in range(len(psol)):
         x = psol[y]
         for y2 in range(y + 1, len(psol)):
@@ -23,7 +25,12 @@ def check_partial(psol):
                 return False
     return True
 
+
 def check_newest(psol):
+    """Save time by only checking of the last queen in the partial
+    solution is legally placed. This is acceptable since by building
+    on legal solutions, we can guarantee that all queens but the last
+    are legally placed."""
     y = len(psol) - 1
     x = psol[y]
     for y2 in range(y):
