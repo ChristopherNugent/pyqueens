@@ -28,7 +28,8 @@ for y in range(0, height, tile_size):
     for x in range(0, width, tile_size):
         rect = (x, y, tile_size, tile_size)
         pygame.draw.rect(background, next(colors), rect)
-    next(colors)
+    if n % 2 == 0:
+        next(colors)
 
 
 # display loop ###############################################################
