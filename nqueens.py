@@ -8,9 +8,10 @@ def lazy_n_queens(n, w=0):
             cur.append(pos)
             # if check_newest(cur, n, w):
             if len(cur) == n:
-                yield cur
+                yield cur, True
             else:
                 pstack.append(cur[:])
+                yield cur, False
             cur.pop()
 
 

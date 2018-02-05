@@ -1,3 +1,6 @@
+# NOTE
+Repo is currently very disorganized.
+
 ```
 usage: nqueens.py [-h] [-p | -q] [-c] size
 
