@@ -8,6 +8,10 @@ try:
     n = int(sys.argv[1])
 except Exception:
     n = 8
+try:
+    speed = int(sys.argv[2])
+except Exception:
+    speed = 0
 
 # set up background surface
 pygame.init()
@@ -40,7 +44,10 @@ while not game_exit:
         if event.type == pygame.QUIT:
             game_exit = True
 
-    sol, result = next(queen_events)
+    try:
+        sol, result = next(queen_events)
+    except StopIteration:
+        quit()
     foreground = pygame.Surface((width, height), pygame.SRCALPHA)
     foreground.fill((0, 0, 0, 0))
     marker_radius = int(tile_size * 0.4)
@@ -65,6 +72,6 @@ while not game_exit:
 
     if result:
         time.sleep(1)
-    clock.tick(10)
+    clock.tick(speed)
 
 pygame.quit()
