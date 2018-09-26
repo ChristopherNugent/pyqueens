@@ -1,5 +1,7 @@
 # Usage
+
 GUI: `python3 pyqueens` 
+
 CLI: `python3 pyqueens/cli.py [-h] [-p | -q] [-c] size`
 
 # CLI Usage
